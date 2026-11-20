@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Haven House Cafe — community café in North Haven, Calgary. Home of the Haven-ahh Latte, Montreal smoked meat, and a dog-friendly welcome. Call (403) 590-8425." />
+    <link rel="icon" href="data:," />
+    <title>Haven House Cafe — Community Café in North Haven, Calgary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #15100a;
+        --bg-2: #1e150d;
+        --card: #261b10;
+        --card-2: #2f2213;
+        --ink: #ffffff;
+        --ink-soft: #c9c9cf;
+        --ink-dim: #9a9aa2;
+        --accent: #e89b45;
+        --accent-bright: #f6c177;
+        --accent-deep: #c07a2e;
+        --line: #3a2b1c;
+        --star: #f6c177;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
+        --radius: 16px;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3 { font-family: "Oswald", "Arial Narrow", sans-serif; font-weight: 600; line-height: 1.1; margin: 0; text-transform: uppercase; letter-spacing: 0.02em; }
+      p { margin: 0; }
+      a { color: var(--accent-bright); }
+      .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+      section { padding: 72px 0; }
+      .section-head { max-width: 640px; margin-bottom: 36px; }
+      .section-head .kicker { color: var(--accent); font-weight: 800; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; display: block; margin-bottom: 10px; }
+      .section-head h2 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); color: var(--ink); margin-bottom: 10px; }
+      .section-head p { color: var(--ink-soft); font-size: 1.05rem; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+        min-height: 52px; padding: 12px 26px; border-radius: 10px;
+        font-family: "Inter", sans-serif; font-weight: 800; font-size: 1.02rem;
+        text-decoration: none; border: 2px solid transparent; cursor: pointer;
+        transition: transform 0.15s ease, background 0.15s ease;
+      }
+      .btn:active { transform: scale(0.98); }
+      .btn-accent { background: var(--accent); color: #141414; box-shadow: var(--shadow-sm); }
+      .btn-accent:hover { background: var(--accent-bright); }
+      .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink-soft); }
+      .btn-ghost:hover { border-color: var(--ink); background: rgba(255,255,255,0.06); }
+      .btn svg { width: 19px; height: 19px; flex: none; }
+      .band { height: 10px; background: var(--accent); }
+      .hero {
+        padding: 0;
+        background:
+          linear-gradient(rgba(14, 9, 4, 0.88), rgba(14, 9, 4, 0.94)),
+          repeating-linear-gradient(-45deg, #1e150d 0 26px, #261b10 26px 52px);
+      }
+      .hero-inner { padding: 72px 20px 76px; max-width: 1120px; margin: 0 auto; text-align: left; }
+      .hero-eyebrow {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: rgba(255,255,255,0.07); border: 1px solid var(--accent); border-radius: 999px;
+        padding: 7px 15px; font-size: 0.85rem; font-weight: 800; color: var(--accent-bright);
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        font-size: clamp(2.6rem, 8vw, 4.8rem);
+        color: #ffffff;
+        font-weight: 700;
+        margin-bottom: 18px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+      }
+      .hero h1 .accent { color: var(--accent-bright); }
+      .hero-sub {
+        font-size: 1.18rem; color: #f0f0f2; font-weight: 600;
+        max-width: 34em; margin-bottom: 14px;
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+      }
+      .hero-sub-2 { font-size: 1.02rem; color: #d7d7dc; max-width: 34em; margin-bottom: 28px; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9); }
+      .rating-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+      .stars { display: inline-flex; gap: 2px; }
+      .stars svg { width: 22px; height: 22px; fill: var(--star); }
+      .rating-text { font-weight: 800; font-size: 1.05rem; color: #ffffff; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9); }
+      .rating-text span { color: #d7d7dc; font-weight: 600; }
+      .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+      .hero-note { margin-top: 20px; font-size: 0.92rem; color: #c9c9cf; font-weight: 600; }
+      .facts { padding: 0; }
+      .facts-inner {
+        display: grid; grid-template-columns: repeat(4, 1fr);
+        background: var(--accent); color: #141414;
+      }
+      .fact { padding: 26px 16px; text-align: center; }
+      .fact + .fact { border-left: 1px solid rgba(20, 20, 20, 0.18); }
+      .fact .num { font-family: "Oswald", sans-serif; font-size: 1.9rem; font-weight: 700; line-height: 1.1; display: block; }
+      .fact .lbl { font-size: 0.88rem; font-weight: 700; }
+      .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .service-card {
+        background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 30px 26px; box-shadow: var(--shadow-sm);
+      }
+      .service-card .num {
+        font-family: "Oswald", sans-serif; font-size: 0.95rem; font-weight: 700;
+        color: var(--accent); letter-spacing: 0.1em; display: block; margin-bottom: 12px;
+      }
+      .service-card h3 { font-size: 1.45rem; margin-bottom: 10px; color: #ffffff; }
+      .service-card p { color: var(--ink-soft); font-size: 0.98rem; }
+      .services-note {
+        margin-top: 24px; background: var(--card-2); border: 1px solid var(--line); border-radius: var(--radius);
+        padding: 22px 26px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+      }
+      .services-note p { flex: 1 1 320px; font-weight: 600; color: var(--ink-soft); }
+      .services-note strong { color: #ffffff; }
+      .about { background: var(--bg-2); }
+      .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+      .about-visual {
+        border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+        background: linear-gradient(135deg, #261b10 0%, #2f2213 55%, #1e150d 100%);
+        border: 1px solid var(--line);
+        min-height: 320px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        padding: 48px 32px; text-align: center; position: relative;
+      }
+      .about-visual::before {
+        content: ""; position: absolute; top: 0; left: 0; right: 0; height: 10px;
+        background: var(--accent);
+      }
+      .about-visual .mark { font-family: "Oswald", sans-serif; font-size: clamp(3.2rem, 10vw, 5rem); font-weight: 700; line-height: 0.95; color: var(--accent); }
+      .about-visual .mark-sub { font-family: "Oswald", sans-serif; font-size: 1.15rem; letter-spacing: 0.28em; text-transform: uppercase; color: #ffffff; margin-top: 14px; }
+      .about-visual .mark-tag { color: var(--ink-dim); font-size: 0.92rem; font-weight: 600; margin-top: 8px; }
+      .about-copy h2 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); margin-bottom: 16px; color: #ffffff; }
+      .about-copy p { color: var(--ink-soft); margin-bottom: 14px; }
+      .about-copy p strong { color: #ffffff; }
+      .about-copy blockquote {
+        margin: 22px 0 0; padding: 18px 22px; border-left: 4px solid var(--accent);
+        background: var(--card); border-radius: 0 var(--radius) var(--radius) 0;
+        font-size: 1.08rem; font-weight: 600; color: #ffffff; font-style: italic;
+      }
+      .about-copy blockquote cite { display: block; margin-top: 8px; font-style: normal; font-size: 0.9rem; color: var(--ink-dim); font-weight: 700; }
+      .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+      .visit-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 28px; }
+      .visit-card h3 { font-size: 1.35rem; margin-bottom: 18px; color: #ffffff; }
+      .hours-line { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+      .hours-line:last-of-type { border-bottom: none; }
+      .hours-line .day { font-weight: 700; color: #ffffff; }
+      .hours-line .time { color: var(--ink-soft); font-weight: 600; text-align: right; }
+      .hours-note { margin-top: 16px; color: var(--ink-soft); font-size: 0.95rem; }
+      .hours-note a { font-weight: 800; text-decoration: none; }
+      .hours-note a:hover { text-decoration: underline; }
+      .contact-lines { display: grid; gap: 16px; margin-bottom: 24px; }
+      .contact-line { display: flex; gap: 12px; align-items: flex-start; }
+      .contact-line svg { width: 21px; height: 21px; flex: none; margin-top: 3px; stroke: var(--accent-bright); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+      .contact-line .k { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-dim); }
+      .contact-line a { font-weight: 800; text-decoration: none; color: #ffffff; word-break: break-word; }
+      .contact-line a:hover { text-decoration: underline; }
+      .contact-line .v { font-weight: 800; color: #ffffff; }
+      .cta-band { background: linear-gradient(135deg, #1e150d 0%, #2f2213 100%); text-align: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .cta-band h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 12px; color: #ffffff; }
+      .cta-band p { color: var(--ink-soft); max-width: 32em; margin: 0 auto 28px; }
+      .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+      footer { background: #060607; color: #c9c9cf; padding: 40px 0 48px; }
+      .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: center; }
+      footer .fname { font-family: "Oswald", sans-serif; font-size: 1.4rem; color: #ffffff; text-transform: uppercase; letter-spacing: 0.04em; }
+      footer p { font-size: 0.95rem; }
+      footer a { color: var(--accent-bright); font-weight: 800; text-decoration: none; }
+      footer a:hover { text-decoration: underline; }
+      .concept { font-size: 0.85rem; color: #8a8a92; margin-top: 18px; }
+      .sticky-bar { display: none; }
+      @media (max-width: 760px) {
+        body { padding-bottom: 74px; }
+        .sticky-bar {
+          display: flex; align-items: center; gap: 12px;
+          position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+          background: var(--card); border-top: 1px solid var(--line);
+          padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+          box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.5);
+        }
+        .sticky-bar .sname { font-family: "Oswald", sans-serif; font-size: 1.05rem; line-height: 1.15; color: #ffffff; text-transform: uppercase; }
+        .sticky-bar .srate { font-size: 0.8rem; font-weight: 800; color: var(--ink-soft); display: flex; align-items: center; gap: 4px; }
+        .sticky-bar .srate svg { width: 14px; height: 14px; fill: var(--star); }
+        .sticky-bar .btn { margin-left: auto; min-height: 46px; padding: 10px 20px; font-size: 0.98rem; }
+      }
+      @media (max-width: 900px) {
+        .services-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 760px) {
+        section { padding: 52px 0; }
+        .hero-inner { padding: 52px 20px 56px; }
+        .facts-inner { grid-template-columns: repeat(2, 1fr); }
+        .fact:nth-child(3) { border-left: none; }
+        .fact:nth-child(n+3) { border-top: 1px solid rgba(20, 20, 20, 0.18); }
+        .about-grid { grid-template-columns: 1fr; gap: 28px; }
+        .about-visual { min-height: 260px; }
+        .visit-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 540px) {
+        .hero-actions .btn { flex: 1 1 auto; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="band" aria-hidden="true"></div>
+    <header class="hero">
+      <div class="hero-inner">
+        <span class="hero-eyebrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>1107 48 Ave NW · Calgary, AB</span>
+        <h1>Haven House <span class="accent">Cafe</span></h1>
+        <p class="hero-sub">North Haven&rsquo;s community café — coffee, comfort food, and a warm welcome, just east of Nose Hill Park.</p>
+        <p class="hero-sub-2">Rated 4.9 stars across 406 reviews — home of the Haven-ahh Latte, Montreal smoked meat, and a dog-friendly welcome where every pup gets a free treat.</p>
+        <div class="rating-row" aria-label="Rated 4.9 out of 5 stars from 406 reviews">
+          <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span>
+          <span class="rating-text">4.9 <span>· 406 reviews</span></span>
+        </div>
+        <div class="hero-actions"><a class="btn btn-accent" href="tel:+14035908425"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call (403) 590-8425</a>
+          <a class="btn btn-ghost" href="mailto:Havenhousecafe@outlook.com">Email Us</a></div>
+        <p class="hero-note">Dog-friendly · Kid- and senior-friendly · Licensed</p>
+      </div>
+    </header>
+    <section class="facts" aria-label="At a glance">
+      <div class="facts-inner"><div class="fact"><span class="num">4.9 ★</span><span class="lbl">Rating · 406 reviews</span></div><div class="fact"><span class="num">406</span><span class="lbl">Reviews</span></div><div class="fact"><span class="num">Dog-friendly</span><span class="lbl">Free dog treats</span></div><div class="fact"><span class="num">North Haven</span><span class="lbl">Calgary, AB</span></div></div>
+    </section>
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Menu</span>
+          <h2>Coffee, comfort food, and community</h2>
+          <p>From the signature Haven-ahh Latte to a Montreal smoked meat sandwich — everything on the menu is made to bring the neighbourhood together.</p>
+        </div>
+        <div class="services-grid"><article class="service-card">
+            <span class="num">01</span>
+            <h3>Signature Coffees</h3>
+            <p>The Haven-ahh Latte — created with a North Haven resident — plus the Canadiano, white hot chocolate, matcha lattes, and chai lattes.</p>
+          </article><article class="service-card">
+            <span class="num">02</span>
+            <h3>Comfort Food</h3>
+            <p>Montreal smoked meat sandwich, chili cheese dogs, homemade chili and soups, grilled cheese, and Spolumbo&rsquo;s sausages.</p>
+          </article><article class="service-card">
+            <span class="num">03</span>
+            <h3>Baked Goods &amp; Treats</h3>
+            <p>In-house and local baked goods, plus candy — the counter is always worth a look before you order.</p>
+          </article><article class="service-card">
+            <span class="num">04</span>
+            <h3>More Than a Café</h3>
+            <p>Local micro-brewed beers, an artisan market, and live entertainment — a licensed, welcoming spot for kids, seniors, and everyone in between.</p>
+          </article></div>
+        <div class="services-note">
+          <p><strong>Bringing your dog?</strong> Haven House is dog-friendly, with free dog treats for every four-legged guest. Call ahead and ask what&rsquo;s on today — <strong>(403) 590-8425</strong>.</p>
+          <a class="btn btn-accent" href="tel:+14035908425">Call the Café</a>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="wrap">
+        <div class="about-grid">
+          <div class="about-visual" aria-hidden="true">
+            <span class="mark">HH</span>
+            <span class="mark-sub">Haven House Cafe</span>
+            <span class="mark-tag">Community Café · North Haven</span>
+          </div>
+          <div class="about-copy">
+            <div class="section-head" style="margin-bottom: 0;">
+              <span class="kicker">About the café</span>
+              <h2>A café that belongs to its neighbourhood</h2>
+            </div>
+            <p style="margin-top: 16px;">Haven House Cafe is a community café in North Haven, just east of Nose Hill Park, rated <strong>4.9 stars across 406 reviews</strong>. It&rsquo;s the kind of place where the latte is named after the neighbourhood — the Haven-ahh Latte was created with a North Haven resident — and where regulars, kids, seniors, and dogs are all part of the room.</p>
+            <p>Licensed, dog-friendly with free treats, and home to an artisan market and live entertainment, it&rsquo;s a gathering spot first and a café second. The only thing it&rsquo;s missing is a website — right now, the only way to find it is Instagram or word of mouth.</p>
+            <blockquote>
+              &ldquo;The Haven-ahh Latte — created with a North Haven resident.&rdquo;
+              <cite>— Haven House Cafe, North Haven, Calgary</cite>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="visit">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="kicker">Visit</span>
+          <h2>Drop in for a coffee</h2>
+          <p>Call or email to check today&rsquo;s hours and what&rsquo;s on — then come by 48 Ave NW and pull up a chair.</p>
+        </div>
+        <div class="visit-grid">
+          <div class="visit-card">
+            <h3>Hours</h3>
+            <div class="hours-line">
+              <span class="day">Monday (Google listing)</span>
+              <span class="time">7:30 AM – 4:30 PM</span>
+            </div><div class="hours-line">
+              <span class="day">Other days</span>
+              <span class="time">Hours vary — call to confirm</span>
+            </div><div class="hours-line">
+              <span class="day">Today&rsquo;s hours</span>
+              <span class="time">Call (403) 590-8425</span>
+            </div>
+            <p class="hours-note">Hours vary by day and listings differ — please call <a href="tel:+14035908425">(403) 590-8425</a> to confirm today&rsquo;s hours before you come by.</p>
+            <div style="margin-top: 22px;">
+              <a class="btn btn-accent" href="tel:+14035908425">Call the Café</a>
+            </div>
+          </div>
+          <div class="visit-card">
+            <h3>Contact</h3>
+            <div class="contact-lines"><div class="contact-line">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div><div class="k">Phone</div><a href="tel:+14035908425">(403) 590-8425</a></div>
+              </div><div class="contact-line">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                <div><div class="k">Email</div><a href="mailto:Havenhousecafe@outlook.com">Havenhousecafe@outlook.com</a></div>
+              </div><div class="contact-line">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div><div class="k">Location</div><span class="v">1107 48 Ave NW, Calgary, AB T2K 0J6</span></div>
+              </div><div class="contact-line">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v6a5 5 0 0 1-10 0V4Z"/><path d="M7 6H4a1 1 0 0 0-1 1c0 2.5 2 4 4 4"/><path d="M17 6h3a1 1 0 0 1 1 1c0 2.5-2 4-4 4"/></svg>
+                <div><div class="k">Instagram</div><a href="https://www.instagram.com/havenhousecafe/">@havenhousecafe</a></div>
+              </div></div>
+            <a class="btn btn-ghost" href="tel:+14035908425">Call (403) 590-8425</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-band">
+      <div class="wrap">
+        <h2>Your neighbourhood café is waiting.</h2>
+        <p>Drop in for a Haven-ahh Latte, a Montreal smoked meat sandwich, and a seat in the room where North Haven gathers.</p>
+        <div class="cta-actions">
+          <a class="btn btn-accent" href="tel:+14035908425">Call the Café</a>
+          <a class="btn btn-ghost" href="mailto:Havenhousecafe@outlook.com">Email Us</a>
+        </div>
+      </div>
+    </section>
+    <div class="band" aria-hidden="true"></div>
+    <footer>
+      <div class="wrap">
+        <div class="footer-inner">
+          <div>
+            <div class="fname">Haven House Cafe</div>
+            <p>Community café · 1107 48 Ave NW, Calgary, AB</p>
+          </div>
+          <div>
+            <p><a href="tel:+14035908425">(403) 590-8425</a></p>
+            <p><a href="mailto:Havenhousecafe@outlook.com">Email Us</a></p>
+          </div>
+        </div>
+        <p class="concept">Concept demo prepared for Haven House Cafe</p>
+      </div>
+    </footer>
+    <div class="sticky-bar">
+      <div>
+        <div class="sname">Haven House Cafe</div>
+        <div class="srate">4.9 ★ · 406 reviews</div>
+      </div>
+      <a class="btn btn-accent" href="tel:+14035908425">Call</a>
+    </div>
+  </body>
+</html>
